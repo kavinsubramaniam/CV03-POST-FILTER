@@ -61,6 +61,10 @@ def preprocess_image(img):
     return output
 
 
+@app.route('/', methods=["GET"])
+def home():
+    return "Hello There! this page only works for post request!"
+
 @app.route('/detect_comment', methods=["POST"])
 def getData():
     try:
