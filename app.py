@@ -13,6 +13,7 @@ from tensorflow.keras.applications import VGG16
 from tensorflow.keras.applications.vgg16 import preprocess_input
 from PIL import Image
 from io import BytesIO
+import os 
 
 # Creating flask app
 app = Flask(__name__)
@@ -120,4 +121,6 @@ def detect_post():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    # app.run(debug=True, host="0.0.0.0")
+    port = int(os.environ.get('PORT', 10000))  # fallback for local testing
+    app.run(host='0.0.0.0', port=port)
